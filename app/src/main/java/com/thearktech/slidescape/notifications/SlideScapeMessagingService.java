@@ -2,8 +2,14 @@ package com.thearktech.slidescape.notifications;
 
 import android.util.Log;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.thearktech.slidescape.entity.Event;
+
+import org.json.JSONObject;
+
+import java.io.IOException;
 
 /**
  * Created by Aurelian Cotuna on 4/29/17.
@@ -32,8 +38,12 @@ public class SlideScapeMessagingService extends FirebaseMessagingService {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
 
-        // Also if you intend on generating your own notifications as a result of a received FCM
-        // message, here is where that should be initiated. See sendNotification method below.
+        try {
+            JSONObject jsonpObject = new JSONObject(remoteMessage.getData());
+            Event event = new ObjectMapper().readValue(jsonpObject.toString(), Event.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

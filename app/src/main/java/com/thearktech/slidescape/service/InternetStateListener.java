@@ -16,6 +16,9 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.messaging.FirebaseMessaging;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
@@ -81,13 +84,14 @@ public class InternetStateListener extends BroadcastReceiver {
                         return;
                     }
                     Address addr = locations.get(0);
-                    Log.d(TAG, "Addr = " + addr.getLocality());
+                    String localityTopic = addr.getLocality().replaceAll("\\s+","");;
+                    Log.d(TAG, "Topic = " + localityTopic);
+
+                    FirebaseMessaging.getInstance().subscribeToTopic(localityTopic);
                 } catch (IOException e) {
                     Log.d(TAG, "Error: " + e.getMessage(), e);
                     e.printStackTrace();
                 }
-                // subscribe to firebase
-                // TODO
             }
 
             @Override

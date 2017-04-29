@@ -1,5 +1,6 @@
 package com.thearktech.slidescape.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
@@ -9,6 +10,7 @@ import java.util.Date;
  * Created by tudor on 4/29/17.
  */
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Event {
     private String continentCode;
     private String countryCode;
@@ -19,8 +21,8 @@ public class Event {
     private String injuries;
     private String landslideSize;
     private String landslideType;
-    private long latitude;
-    private long longitude;
+    private float latitude;
+    private float longitude;
     private String near;
     private String nearestPlaces;
     private int population;
@@ -99,19 +101,19 @@ public class Event {
         this.landslideType = landslideType;
     }
 
-    public long getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(long latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
 
-    public long getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(long longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
 
