@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "996760153563",
+    "firebase_url": "https://nasaspaceappchallenge.firebaseio.com",
+    "project_id": "nasaspaceappchallenge",
+    "storage_bucket": "nasaspaceappchallenge.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996760153563:android:66b64649b9c50924",
+        "android_client_info": {
+          "package_name": "com.thearktech.slidescape"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996760153563-2116gp3962ma030ai2kv3uv1usv9c6jl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9i9KBjr-YoCnGwyXyzJ21bQYAPR18c44"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
