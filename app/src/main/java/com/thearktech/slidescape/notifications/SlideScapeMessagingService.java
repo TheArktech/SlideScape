@@ -1,10 +1,12 @@
 package com.thearktech.slidescape.notifications;
 
+import android.content.Intent;
 import android.util.Log;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.thearktech.slidescape.AlarmActivity;
 import com.thearktech.slidescape.entity.Event;
 
 import org.json.JSONObject;
@@ -41,6 +43,8 @@ public class SlideScapeMessagingService extends FirebaseMessagingService {
         try {
             JSONObject jsonpObject = new JSONObject(remoteMessage.getData());
             Event event = new ObjectMapper().readValue(jsonpObject.toString(), Event.class);
+            Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+            startActivity(intent);
         } catch (IOException e) {
             e.printStackTrace();
         }
